@@ -61,6 +61,7 @@ int _env(__attribute__((unused)) char **args,
 	__attribute__((unused)) char *input);
 int _setenv(char *name, char *val);
 int shell_cd(char **args, __attribute__((unused)) char *input);
+int shell_exit(__attribute__((unused)) char **args, char *input);
 
 ssize_t _getline_(char **line,
 		size_t *n, __attribute__((unused))FILE * stream);
