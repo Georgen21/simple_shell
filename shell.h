@@ -34,7 +34,7 @@ char *_getenv_(const char *n);
 char **_splits_paths(char *commd, char *copy_commd);
 int simple_getc(void);
 char **splits_txts(char *line);
-ssize_t _getline_(char **line, size_t *n, attribute((unused))FILE * stream);
+ssize_t _getline_(char **line, size_t *n, __attribute__((unused))FILE * stream);
 int _exec_work_builtin(char **args, char *input);
 
 /* memory allocation */
