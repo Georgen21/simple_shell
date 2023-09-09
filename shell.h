@@ -36,6 +36,7 @@ int simple_getc(void);
 char **splits_txts(char *line);
 ssize_t _getline_(char **line, size_t *n, __attribute__((unused))FILE * stream);
 int _exec_work_builtin(char **args, char *input);
+int shell_exit(__attribute__((unused)) char **args, char *input);
 
 /* memory allocation */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
@@ -58,7 +59,7 @@ int shell_help(__attribute__((unused)) char **args,
   */
 int _env(__attribute__((unused)) char **args,
 	__attribute__((unused)) char *input);
-int _setenv(char *name, char *value);
+int _setenv(char *name, char *val);
 int shell_cd(char **args, __attribute__((unused)) char *input);
 
 ssize_t _getline_(char **line,
