@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
-  * _start- function starts the process to be executed.
+  * _launch - function starts the process to be executed.
   * @args: List of arguments passed.
   * Return: Always 1.
   */
-int _start(char **args)
+int _launch(char **args)
 {
 	int state, pid;
 	int flag = 0;
@@ -20,7 +20,7 @@ int _start(char **args)
 	{
 		if (execve(args[0], args, environ) == -1)
 		{
-			perror("hsh");
+			perror("shell:");
 		}
 		if (flag == 1)
 			free(args[0]);
@@ -28,7 +28,7 @@ int _start(char **args)
 	}
 	else if (pid < 0)
 	{
-		perror("hsh");
+		perror("shell:");
 		if (flag == 1)
 			free(args[0]);
 		return (-1);

@@ -11,7 +11,7 @@ char **_splits_paths(char *commd, char *copy_commd)
 {
 	int bufsize = 1024, post = 0;
 	char **tokenize;
-	char *tokens;
+	char *token;
 	char *delim = ":\r\n\a";
 
 	tokenize = malloc(bufsize * sizeof(char *));
@@ -25,13 +25,13 @@ char **_splits_paths(char *commd, char *copy_commd)
 	{
 		*copy_commd = '\0';
 		tokenize[post] = copy_commd;
-/*		printf("%d: %s\n", post, tokenize[post]);*/
+	/*printf("%d: %s\n", post, tokenize[post]);*/
 		post++;
 	}
-	tokens = _strtok(copy_commd, delim);
-	while (tokens != NULL)
+	token = _strtok(copy_commd, delim);
+	while (token != NULL)
 	{
-		tokenize[post] = tokens;
+		tokenize[post] = token;
 /*		printf("%d: %s\n", post, tokens[post]);*/
 		post++;
 
@@ -45,7 +45,7 @@ char **_splits_paths(char *commd, char *copy_commd)
 				return (NULL);
 			}
 		}
-		tokens = _strtok(NULL, delim);
+		token = _strtok(NULL, delim);
 	}
 	tokenize[post] = NULL;
 	return (tokenize);

@@ -15,7 +15,7 @@ char **_split_commd_(char *commd)
 	tokenize = malloc(bufsize * sizeof(char *));
 	if (!tokenize)
 	{
-		perror("hsh: allocation error\n");
+		perror("shell: allocation error\n");
 		return (NULL);
 	}
 
@@ -31,7 +31,7 @@ char **_split_commd_(char *commd)
 			tokenize = _realloc(tokenize, bufsize - 64, bufsize * sizeof(char *));
 			if (!tokenize)
 			{
-				perror("hsh: allocation error\n");
+				perror("shell: allocation error\n");
 				return (NULL);
 			}
 		}
