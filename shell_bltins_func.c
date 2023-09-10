@@ -29,7 +29,7 @@ int shell_cd(char **args, __attribute__((unused)) char *input)
 
 
 /**
-  * shell_help - Display the help for a command.
+  * _help - Display the help for a command.
   * @args: List of arguments passed from parsing.
   * @input: Input line for free.
   * Return: 1 if works.
@@ -47,6 +47,14 @@ int _help(__attribute__((unused)) char **args,
 	}
 	return (1);
 }
+
+
+/**
+  * shell_exit - Exits the shell.
+  * @args: List of arguments passed from parsing.
+  * @input: Input line for free.
+  * Return: 0 if success.
+  */
 
 int shell_exit(__attribute__((unused)) char **args, char *input)
 {

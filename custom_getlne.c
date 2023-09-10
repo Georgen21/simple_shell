@@ -24,7 +24,7 @@ ssize_t _getline_(char **line, size_t *n, __attribute__((unused))FILE * stream)
 		return (-1);
 	*line = buf;
 	while (1) /* Infinite loop for prompt*/
-	{ fflush(stdout); 
+	{ fflush(stdout);
 		a = _getc();
 		if (a == EOF || a == '\n')
 		{ *(buf + indx) = '\0';
