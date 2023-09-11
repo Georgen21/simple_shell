@@ -29,11 +29,12 @@ int shell_cd(char **args, __attribute__((unused)) char *input)
 
 
 /**
-  * shell_help - Display the help for a command.
-  * @args: List of arguments passed from parsing.
-  * @input: Input line for free.
-  * Return: 1 if works.
-  */
+ * _help - Display the help for a command.
+ * @args: List of arguments passed from parsing.
+ * @input: Input line for free.
+ * Return: 1 if works.
+ */
+
 int _help(__attribute__((unused)) char **args,
 		__attribute__((unused)) char *input)
 {
@@ -47,6 +48,13 @@ int _help(__attribute__((unused)) char **args,
 	}
 	return (1);
 }
+
+/**
+ * shell_exit - shell exit command.
+ * @args: List of arguments passed from pars.
+ * @input: Input line for free.
+ * Return: 0 on success.
+*/
 
 int shell_exit(__attribute__((unused)) char **args, char *input)
 {
@@ -79,4 +87,3 @@ int shell_exit(__attribute__((unused)) char **args, char *input)
 		exit(varble);
 	}
 }
-
