@@ -19,12 +19,12 @@ ssize_t _getline_(char **line, size_t *n, __attribute__((unused))FILE * stream)
 
 	if (*n == 0)
 		tempsize = 1024;
-	buf = malloc(sizeof(char) * (tempsize)); /* Memory alloc for buffer */
+	buf = malloc(sizeof(char) * (tempsize));
 	if (allocs_errors(buf) == -1)
 		return (-1);
 	*line = buf;
 	while (1) /* Infinite loop for prompt*/
-	{ fflush(stdout); 
+	{ fflush(stdout);
 		a = _getc();
 		if (a == EOF || a == '\n')
 		{ *(buf + indx) = '\0';
