@@ -9,22 +9,22 @@
 
 char **_checks_path(char **args, int *flag)
 {
-	char *path, **tokenize_path, *dest_path, *copy_commd;
+	char *paths, **tokenize_path, *dest_path, *copy_commd;
 	int a, b;
 
-	for (b = 0; *(args[0] + b) != '\0'; b++) /* Check for '/' in first arg */
+	for (b = 0; *(args[0] + b) != '\0'; b++)
 	{
 		if (*(args[0] + b) == '/')
-			return (args); /* printf("%s\n", argv[1]);*/
+			return (args);
 	}
-	dest_path = malloc(sizeof(char) * 1024); /*Memory alloc for path */
+	dest_path = malloc(sizeof(char) * 1024);
 	if (alloc_errors1_(dest_path) == -1)
 		return (NULL);
-	path = _getenv_("PATH"); /*  Gets the path from the env with diff path */
-	copy_commd = malloc((_strlen(path) + 1) * sizeof(char *));
+	paths = _getenv_("PATH"); /*  Gets the path from the env with diff path */
+	copy_commd = malloc((_strlen(paths) + 1) * sizeof(char *));
 	if (alloc_errors_(copy_commd, dest_path) == -1)
 		return (NULL);
-	tokenize_path = _splits_paths(path, copy_commd); /* Get array ptr to path*/
+	tokenize_path = _splits_paths(paths, copy_commd); /* Get array ptr to path*/
 	if (tokenize_path == NULL)
 	{ free(copy_commd);
 		return (NULL);

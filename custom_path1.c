@@ -9,44 +9,44 @@
   */
 char **_splits_paths(char *commd, char *copy_commd)
 {
-	int bufsize = 1024, post = 0;
+	int contsize = 1024, track = 0;
 	char **tokenize;
 	char *token;
-	char *delim = ":\r\n\a";
+	char *delimeter = ":\r\n\a";
 
-	tokenize = malloc(bufsize * sizeof(char *));
+	tokenize = malloc(contsize * sizeof(char *));
 	if (!tokenize)
 	{
 		perror("shell: allocation error\n");
 		return (NULL);
 	}
 	_strcpy(copy_commd, commd);
-	if (*copy_commd == *delim)
+	if (*copy_commd == *delimeter)
 	{
 		*copy_commd = '\0';
-		tokenize[post] = copy_commd;
-	/*printf("%d: %s\n", post, tokenize[post]);*/
-		post++;
+		tokenize[track] = copy_commd;
+	/*printf("%d: %s\n", track, tokenize[track]);*/
+		track++;
 	}
-	token = _strtok(copy_commd, delim);
+	token = _strtok(copy_commd, delimeter);
 	while (token != NULL)
 	{
-		tokenize[post] = token;
-/*		printf("%d: %s\n", post, tokens[post]);*/
-		post++;
+		tokenize[track] = token;
+/*		printf("%d: %s\n", track, tokens[track]);*/
+		track++;
 
-		if (post >= bufsize)
+		if (track >= contsize)
 		{
-			bufsize += 1024;
-			tokenize = _realloc(tokenize, bufsize - 1024, bufsize * sizeof(char *));
+			contsize += 1024;
+			tokenize = _realloc(tokenize, contsize - 1024, contsize * sizeof(char *));
 			if (!tokenize)
 			{
 				perror("shell: allocation error\n");
 				return (NULL);
 			}
 		}
-		token = _strtok(NULL, delim);
+		token = _strtok(NULL, delimeter);
 	}
-	tokenize[post] = NULL;
+	tokenize[track] = NULL;
 	return (tokenize);
 }
