@@ -24,12 +24,12 @@ void interact_loop(void)
 			length = _strlen("~$ ");
 			write(STDOUT_FILENO, "~$ ", length);
 		}
-		/*Reads from the prompt line (input) */
+
 		input = read_commd_();
 		if (input == NULL)
 			return;
 
-		/* Split command reads input into arguments. */
+
 		args = splits_txts(input);
 		if (args == NULL)
 		{
@@ -37,10 +37,8 @@ void interact_loop(void)
 			return;
 		}
 
-		/* Executes commands according to arguments. */
 		status = exec_work_builtin(args, input);
 
-		/* This frees user input and arguments. */
 		free(input);
 		free(args);
 

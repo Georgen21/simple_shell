@@ -65,8 +65,7 @@ int _env(__attribute__((unused)) char **args,
 
 		_puts(environ[i]);
 		_puts("\n");
-		/*write(STDOUT_FILENO, *ep, len);*/
-		/*write(STDOUT_FILENO, "\n", 1);*/
+
 		i++;
 	}
 	return (1);

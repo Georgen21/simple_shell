@@ -7,7 +7,7 @@
   */
 int _launch(char **args)
 {
-	int state, pid;
+	int state, pidjg;
 	int flag = 0;
 
 	args = _checks_path(args, &flag);
@@ -15,20 +15,20 @@ int _launch(char **args)
 	if (args == NULL)
 		return (1);
 
-	pid = fork();
-	if (pid == 0)
+	pidjg = fork();
+	if (pidjg == 0)
 	{
 		if (execve(args[0], args, environ) == -1)
 		{
-			perror("shell:");
+			perror("shell");
 		}
 		if (flag == 1)
 			free(args[0]);
 		return (-1);
 	}
-	else if (pid < 0)
+	else if (pidjg < 0)
 	{
-		perror("shell:");
+		perror("shell");
 		if (flag == 1)
 			free(args[0]);
 		return (-1);
@@ -37,7 +37,7 @@ int _launch(char **args)
 	else
 	{
 		do {
-			waitpid(pid, &state, WUNTRACED);
+			waitpid(pidjg, &state, WUNTRACED);
 		} while (!WIFEXITED(state) && !WIFSIGNALED(state));
 	}
 	if (flag == 1)

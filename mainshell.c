@@ -11,12 +11,8 @@ int main(__attribute__((unused)) int argc,
 __attribute__((unused)) char **argv)
 {
 
-	/*Load config files, if any.*/
-
 	/* Run command the interact_loop.*/
 	interact_loop();
-
-	/* Perform any shutdown/cleanup.*/
 
 	return (0);
 }

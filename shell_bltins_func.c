@@ -2,7 +2,7 @@
 
 /**
  * shell_cd - Change the directory.
- * @args: List of arguments passed from parsing.
+ * @args: List of arguments passed from parsing
  * @input: Input line for free.
  * Return: 1 if works.
  */
@@ -14,17 +14,16 @@ int shell_cd(char **args, __attribute__((unused)) char *input)
 	{
 		if (chdir(_getenv_("HOME")) != 0)
 		{
-			perror("shell");
+			perror("shell:");
 		}
 	}
 	else
 	{
 		if (chdir(args[1]) != 0)
 		{
-			perror("shell");
+			perror("shell:");
 		}
 	}
-	i
 	return (1);
 }
 
@@ -69,7 +68,7 @@ int shell_exit(__attribute__((unused)) char **args, char *input)
 
 	if (varble < 0)
 	{
-		perror("shell");
+		perror("shell:");
 		return (1);
 	}
 	else if (varble == 0)
